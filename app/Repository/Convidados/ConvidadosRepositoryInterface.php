@@ -18,4 +18,11 @@ interface ConvidadosRepositoryInterface
      * @param array $data
      */
     public function store(array $data);
+
+    /**
+     * Devolve o convidado pelo ID
+     *
+     * @param int $id
+     */
+    public function get(int $id): Collection;
 }

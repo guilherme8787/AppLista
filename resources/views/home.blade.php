@@ -29,44 +29,28 @@
                             <thead>
                             <tr>
                                 <th scope="col">#<th>
-                                <th scope="col">Name<th>
-                                <th scope="col">Company<th>
-                                <th scope="col">Title<th>
+                                <th scope="col">Nome<th>
+                                <th scope="col">Empresa<th>
                                 <th scope="col">E-mail<th>
                                 <th scope="col">Telefone<th>
                                 <th scope="col">Linkedin<th>
-                                <th scope="col">Data palestra<th>
-                                <th scope="col">Hora palestra<th>
-                                <th scope="col">Plenario ou modulo<th>
-                                <th scope="col">Qual o painel<th>
-                                <th scope="col">Categoria<th>
                                 <th scope="col">Status<th>
-                                <th scope="col">Modelo de participacao<th>
-                                <th scope="col">Cupom<th>
-                                <th scope="col">Created_at<th>
-                                <th scope="col">Updated_at<th>
+                                <th scope="col">Atualizado em<th>
+                                <th scope="col">Ações<th>
                             </tr>
                             </thead>
                             <tbody>
                                 @foreach ($itens as $item)
                                     <tr>
                                         <th scope="row">{{ $item->id }}</th>
-                                        <td scope="col">{{ $item->name }}<td>
-                                        <td scope="col">{{ $item->company }}<td>
-                                        <td scope="col">{{ $item->title }}<td>
-                                        <td scope="col">{{ $item->email }}<td>
-                                        <td scope="col">{{ $item->telefone }}<td>
-                                        <td scope="col">{{ $item->linkedin }}<td>
-                                        <td scope="col">{{ $item->data_palestra }}<td>
-                                        <td scope="col">{{ $item->hora_palestra }}<td>
-                                        <td scope="col">{{ $item->plenario_ou_modulo }}<td>
-                                        <td scope="col">{{ $item->qual_o_painel }}<td>
-                                        <td scope="col">{{ $item->categoria }}<td>
-                                        <td scope="col">{{ $item->status }}<td>
-                                        <td scope="col">{{ $item->modelo_de_participacao }}<td>
-                                        <td scope="col">{{ $item->cupom }}<td>
-                                        <td scope="col">{{ $item->created_at }}<td>
-                                        <td scope="col">{{ $item->updated_at }}<td>
+                                        <td>{{ $item->name }}<td>
+                                        <td>{{ $item->company }}<td>
+                                        <td>{{ $item->email }}<td>
+                                        <td>{{ $item->telefone }}<td>
+                                        <td>{{ $item->linkedin }}<td>
+                                        <td>{{ $item->status }}<td>
+                                        <td>{{ $item->updated_at }}<td>
+                                        <td><a href="{{ route('ver-convidado', $item->id) }}" class="btn btn-primary btn-sm">Ver</a><td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -85,7 +69,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="novoConvidadoLabel">Modal title</h5>
+          <h5 class="modal-title" id="novoConvidadoLabel">Novo convidado</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">

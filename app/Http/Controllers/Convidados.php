@@ -28,4 +28,23 @@ class Convidados extends Controller
     {
         dd($this->convidados->store($request->all()));
     }
+
+    /**
+     * Retorna uma view do convidado a partir do id
+     */
+    public function get(int $id)
+    {
+        $data = [];
+        $convidado = $this->convidados->get($id);
+        if (! $convidado->isEmpty()) {
+            $data = $convidado->toArray()[0];
+        }
+
+        return view(
+            'convidado.index',
+            [
+                'convidado' => $data
+            ]
+        );
+    }
 }

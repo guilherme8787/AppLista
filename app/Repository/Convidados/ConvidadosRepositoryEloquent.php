@@ -3,6 +3,7 @@
 namespace App\Repository\Convidados;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Collection;
 
 class ConvidadosRepositoryEloquent implements ConvidadosRepositoryInterface
 {
@@ -27,5 +28,13 @@ class ConvidadosRepositoryEloquent implements ConvidadosRepositoryInterface
     public function store($data)
     {
         return $this->model->create($data);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function get(int $id): Collection
+    {
+        return $this->model->where('id', $id)->get();
     }
 }

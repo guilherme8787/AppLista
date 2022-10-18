@@ -26,3 +26,4 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::post('/convidado/new', [App\Http\Controllers\Convidados::class, 'store'])->name('novo-convidado');
+Route::get('/convidado/get/{id}', [App\Http\Controllers\Convidados::class, 'get'])->name('ver-convidado');
