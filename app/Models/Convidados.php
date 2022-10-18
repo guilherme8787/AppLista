@@ -14,10 +14,19 @@ class Convidados extends Model
     protected $fillable = [
         'name',
         'company',
+        'title',
         'email',
+        'telefone',
+        'linkedin',
         'data_palestra',
         'hora_palestra',
         'plenario_ou_modulo',
         'qual_o_painel',
+        'categoria',
+        'status',
+        'modelo_de_participacao',
+        'cupom',
+        'created_at',
+        'updated_at',
     ];
 }

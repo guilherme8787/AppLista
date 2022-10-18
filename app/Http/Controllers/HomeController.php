@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Repository\Convidados\ConvidadosRepositoryInterface;
 
 class HomeController extends Controller
 {
@@ -11,7 +12,7 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(private ConvidadosRepositoryInterface $convidados)
     {
         $this->middleware('auth');
     }
@@ -23,6 +24,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view(
+            'home',
+            [
+                'itens' => $this->convidados->getList()
+            ]
+        );
     }
 }
