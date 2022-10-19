@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Menu</div>
 
@@ -20,37 +20,37 @@
     <br>
 
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Convidados</div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
-                            <tr>
-                                <th scope="col">#<th>
-                                <th scope="col">Nome<th>
-                                <th scope="col">Empresa<th>
-                                <th scope="col">E-mail<th>
-                                <th scope="col">Telefone<th>
-                                <th scope="col">Linkedin<th>
-                                <th scope="col">Status<th>
-                                <th scope="col">Atualizado em<th>
-                                <th scope="col">Ações<th>
-                            </tr>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th>Nome</th>
+                                    <th>Empresa</th>
+                                    <th>E-mail</th>
+                                    <th>Telefone</th>
+                                    <th>Linkedin</th>
+                                    <th>Status</th>
+                                    <th>Atualizado em</th>
+                                    <th>Ações</th>
+                                </tr>
                             </thead>
                             <tbody>
                                 @foreach ($itens as $item)
                                     <tr>
                                         <th scope="row">{{ $item->id }}</th>
-                                        <td>{{ $item->name }}<td>
-                                        <td>{{ $item->company }}<td>
-                                        <td>{{ $item->email }}<td>
-                                        <td>{{ $item->telefone }}<td>
-                                        <td>{{ $item->linkedin }}<td>
-                                        <td>{{ $item->status }}<td>
-                                        <td>{{ $item->updated_at }}<td>
-                                        <td><a href="{{ route('ver-convidado', $item->id) }}" class="btn btn-primary btn-sm">Ver</a><td>
+                                        <td>{{ $item->name }}</td>
+                                        <td>{{ $item->company }}</td>
+                                        <td>{{ $item->email }}</td>
+                                        <td>{{ $item->telefone }}</td>
+                                        <td>{{ $item->linkedin }}</td>
+                                        <td>{{ $item->status }}</td>
+                                        <td>{{ $item->updated_at }}</td>
+                                        <td><a href="{{ route('ver-convidado', $item->id) }}" class="btn btn-primary btn-sm">Ver</a></td>
                                     </tr>
                                 @endforeach
                             </tbody>
