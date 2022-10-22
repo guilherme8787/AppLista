@@ -28,6 +28,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::post('/convidado/new', [App\Http\Controllers\Convidados::class, 'store'])->name('novo-convidado');
 Route::get('/convidado/get/{id}', [App\Http\Controllers\Convidados::class, 'get'])->name('ver-convidado');
 
-Route::get('/mail', function() {
-    return view('mail.convite');
-});
+Route::get('/mail', [App\Http\Controllers\Convidados::class, 'sendMail']);

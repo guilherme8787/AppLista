@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ConvidadoRequest;
 use App\Repository\Convidados\ConvidadosRepositoryInterface;
+use App\Services\Mail\Contracts\SendInvitationServiceContract;
+use Exception;
 use Illuminate\Http\Request;
 
 class Convidados extends Controller
@@ -14,9 +16,10 @@ class Convidados extends Controller
      *
      * @return void
      */
-    public function __construct(private ConvidadosRepositoryInterface $convidados)
-    {
-
+    public function __construct(
+        private ConvidadosRepositoryInterface $convidados,
+        private SendInvitationServiceContract $sendService
+    ) {
     }
 
     /**
@@ -26,7 +29,22 @@ class Convidados extends Controller
      */
     public function store(Request $request)
     {
-        dd($this->convidados->store($request->all()));
+        try {
+            $this->convidados->store($request->all());
+            $this->sendService->sendToSpeakerByMail($request->get('email'));
+
+            redirect()->route('home', ['success' => true]);
+        } catch (Exception $e) {
+            redirect()->route('home', [
+                'success' => false,
+                'message' => $e->getMessage()
+            ]);
+        }
+    }
+
+    public function sendMail()
+    {
+        $this->sendService->sendToSpeakerByMail('guilherme8787@gmail.com');
     }
 
     /**

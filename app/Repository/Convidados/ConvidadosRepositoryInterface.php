@@ -2,6 +2,7 @@
 
 namespace App\Repository\Convidados;
 
+use App\Models\Convidados;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
@@ -25,4 +26,10 @@ interface ConvidadosRepositoryInterface
      * @param int $id
      */
     public function get(int $id): Collection;
+
+    /**
+     * @param string $email
+     * @return Convidados
+     */
+    public function getByMail(string $email): Convidados;
 }

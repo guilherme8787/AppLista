@@ -2,6 +2,7 @@
 
 namespace App\Repository\Convidados;
 
+use App\Models\Convidados;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Collection;
 
@@ -36,5 +37,13 @@ class ConvidadosRepositoryEloquent implements ConvidadosRepositoryInterface
     public function get(int $id): Collection
     {
         return $this->model->where('id', $id)->get();
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getByMail(string $email): Convidados
+    {
+        return $this->model->where('email', $email)->get()->first();
     }
 }
