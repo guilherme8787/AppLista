@@ -42,11 +42,6 @@ class Convidados extends Controller
         }
     }
 
-    public function sendMail()
-    {
-        $this->sendService->sendToSpeakerByMail('guilherme8787@gmail.com');
-    }
-
     /**
      * Retorna uma view do convidado a partir do id
      */
